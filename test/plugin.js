@@ -70,9 +70,9 @@ lab.experiment('Plugin', function () {
         }, tags);
 
         Code.expect(tags).to.deep.equal([
-          'route:method:GET',
-          'route:path:/foo/bar',
-          'route:vhost:baz'
+          'route-method:GET',
+          'route-path:/foo/bar',
+          'route-vhost:baz'
         ]);
         next();
       });
@@ -88,8 +88,8 @@ lab.experiment('Plugin', function () {
         }, tags);
 
         Code.expect(tags).to.deep.equal([
-          'route:method:GET',
-          'route:path:/foo/bar'
+          'route-method:GET',
+          'route-path:/foo/bar'
         ]);
         next();
       });

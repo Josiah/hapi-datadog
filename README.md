@@ -49,11 +49,11 @@ Stats collected
 - **http.response.time** as the time taken to send a response to the request
 
 ### Tags
-- request:host:*{request.info.host}*
-- route:path:*{request.route.path}*
-- route:method:*{request.route.method}*
-- route:vhost:*{request.route.vhost}*
-- response:status:*{request.response.statusCode}*
+- request-host:*{request.info.host}*
+- route-path:*{request.route.path}*
+- route-method:*{request.route.method}*
+- route-vhost:*{request.route.vhost}*
+- response-status:*{request.response.statusCode}*
 
 
  [1]: https://github.com/Josiah/hapi-datadog
