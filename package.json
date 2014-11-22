@@ -1,0 +1,37 @@
+{
+  "name": "hapi-datadog",
+  "description": "Hapi process monitor which reports to datadog",
+  "license": "MIT",
+  "author": "Josiah <josiah@rapidapps.io> (https://github.com/Josiah)",
+  "homepage": "https://github.com/Josiah/hapi-datadog",
+  "bugs": "https://github.com/Josiah/hapi-datadog/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Josiah/hapi-datadog.git"
+  },
+  "version": "0.0.0",
+  "keywords": [
+    "hapi",
+    "plugin",
+    "datadog",
+    "statsd"
+  ],
+  "main": "lib/plugin",
+  "directories": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "node-dogstatsd": "0.0.5",
+    "hapi": "^8.0.0"
+  },
+  "devDependencies": {
+    "code": "^1.2.1",
+    "lab": "^5.0.3",
+    "proxyquire": "^1.1.0",
+    "sinon": "^1.12.1"
+  },
+  "scripts": {
+    "prepublish": "lab -ct 100",
+    "test": "lab -vct 100"
+  }
+}
