@@ -44,13 +44,16 @@ on your server so that stats can be reported back.
 Stats collected
 ---------------
 
-### Response time
+### Metrics
+- **http.response.count** as a counter for the number of requests
+- **http.response.time** as the time taken to send a response to the request
 
-The time between when the request was received and responded to.
-
-#### Tags
-- status:*{http status code}*
-- host:*{http host}*
+### Tags
+- request:host:*{request.info.host}*
+- route:path:*{request.route.path}*
+- route:method:*{request.route.method}*
+- route:vhost:*{request.route.vhost}*
+- response:status:*{request.response.statusCode}*
 
 
  [1]: https://github.com/Josiah/hapi-datadog

@@ -30,14 +30,14 @@ lab.experiment('Plugin', function () {
     lab.test('response time', function (next) {
       var histogram = Sinon.mock(stats)
         .expects('histogram')
-        .withArgs('http.response.time');
+        .withArgs('http.response.time', 100, 1);
 
       server.emit('response', {
         response: {
           statusCode: 200
         },
         info: {
-          recieved: 0,
+          received: 0,
           responded: 100,
           host: 'foo:5000'
         }
@@ -45,6 +45,54 @@ lab.experiment('Plugin', function () {
 
       histogram.verify;
       next();
+    });
+  });
+
+  lab.experiment('tags', function () {
+    lab.experiment('request', function () {
+      lab.test('will handle empty values', function (next) {
+        var tags = [];
+        Plugin.tagRequest(null, tags);
+
+        Code.expect(tags).to.deep.equal([]);
+        next();
+      });
+
+      lab.test('route tagging', function (next) {
+        var tags = [];
+
+        Plugin.tagRequest({
+          route: {
+            path: '/foo/bar',
+            method: 'GET',
+            vhost: 'baz'
+          }
+        }, tags);
+
+        Code.expect(tags).to.deep.equal([
+          'route:method:GET',
+          'route:path:/foo/bar',
+          'route:vhost:baz'
+        ]);
+        next();
+      });
+
+      lab.test('route tagging (no vhost)', function (next) {
+        var tags = [];
+
+        Plugin.tagRequest({
+          route: {
+            path: '/foo/bar',
+            method: 'GET'
+          }
+        }, tags);
+
+        Code.expect(tags).to.deep.equal([
+          'route:method:GET',
+          'route:path:/foo/bar'
+        ]);
+        next();
+      });
     });
   });
 });
