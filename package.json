@@ -21,8 +21,8 @@
     "lib"
   ],
   "peerDependencies": {
-    "node-dogstatsd": "0.0.5",
-    "hapi": "^8.0.0"
+    "node-dogstatsd": ">=0.0.5 <1.0.0",
+    "hapi": ">=8.0.0 <17.0.0"
   },
   "devDependencies": {
     "code": "^1.2.1",
