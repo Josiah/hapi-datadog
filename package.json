@@ -31,7 +31,7 @@
     "sinon": "^1.12.1"
   },
   "scripts": {
-    "prepublish": "lab -ct 100",
-    "test": "lab -vct 100"
+    "prepublish": "lab -c -t 100",
+    "test": "lab -vc -t 100"
   }
 }
